@@ -1,0 +1,9 @@
+# Request
+int32 table_number
+string command
+---
+# Result
+string status
+---
+# Feedback
+string current_status
