@@ -22,3 +22,27 @@ restaurant_world.world : 테스트할 주방(SLAM으로 맵 로드하고 저장�
 
 package.xml : 주방 테이블 및 터틀봇 위치 정의 
 setup.py : setup 코드
+
+
+실행 방식(실행 순서는 꼭 준수하기 터미널1 -> 터미널 4 순으로 실행)
+
+# 빌드
+
+cd ~/[워크스페이스]
+colcon build --symlink-install --packages-select table_service_robot
+
+# 터미널 1
+source install/setup.bash
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
+# 터미널 2
+source install/setup.bash
+ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True
+
+# 터미널 3
+source install/setup.bash
+ros2 run table_service_robot navigation_node
+
+# 터미널 4
+source install/setup.bash
+ros2 run table_service_robot navigation_gui
