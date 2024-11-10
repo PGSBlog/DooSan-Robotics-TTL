@@ -1,7 +1,9 @@
+개발 경로 : 
+
 /home/droppgs/DOOSAN/task/turtlebot3_ws/src/table_service_robot/table_service_robot
 
-navigation_node.py : navigation node => 통신 확인 코드
-navigation_gui.py : navigation gui => 로봇에게 이동, 복귀 명령 코드
+navigation_node.py : navigation node => 통신 확인 코드,
+navigation_gui.py : navigation gui => 로봇에게 이동, 복귀 명령 코드,
 
 /home/droppgs/DOOSAN/task/turtlebot3_ws/src/table_service_robot/action
 
