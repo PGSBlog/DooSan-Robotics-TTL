@@ -1,6 +1,21 @@
 # DooSan-Robotics-TTL
 
+* projectsrv.zip을 다운 받을 것
+* 소스 파일의 py를 보면 이미지나 오디오 파일들의 경로 이름이 설정된 것들이 있는데 이것들은 자기 환경에 맞게 바꿔줘야함
 
+### projectsrv
+---
+
+키오스크와 키친을 띄우고 서로 서비스 방식으로 통신함
+이후 로봇이 받아야할 정보를 토픽으로 전송함
+
+```bash
+ros2 run projectsrv kitchen 
+```
+
+```bash
+ros2 run projectsrv kiosk 
+```
 
 ### ttb_gui
 ---
