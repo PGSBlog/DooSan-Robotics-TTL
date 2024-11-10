@@ -26,7 +26,7 @@ setup.py : setup 코드
 
 # 빌드 실행 방식(실행 순서는 꼭 준수하기 터미널1 -> 터미널 4 순으로 실행)
 
-cd ~/[워크스페이스]
+cd ~/[워크스페이스] &&
 colcon build --symlink-install --packages-select table_service_robot
 
 # 터미널 1
