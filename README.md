@@ -31,7 +31,7 @@ cd ~/[워크스페이스] && colcon build --symlink-install --packages-select ta
 # 터미널 1
 source install/setup.bash && ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
 
-# 터미널 2
+# 터미널 2 (실행하고 상단에 2D Pose Estimate)를 써서 터틀봇 위치 방향 잡아주기
 source install/setup.bash && ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True
 
 # 터미널 3
