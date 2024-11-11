@@ -35,7 +35,7 @@ source install/setup.bash && ros2 launch turtlebot3_gazebo turtlebot3_world.laun
 source install/setup.bash && ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True
 
 # 터미널 3
-source install/setup.bash && ros2 run table_service_robot navigation_node
+source install/setup.bash && ros2 run table_service_robot kiosk
 
 # 터미널 4
 source install/setup.bash && ros2 run table_service_robot navigation_gui
