@@ -1,0 +1,8 @@
+# Request
+string menu_name
+int32 quantity
+
+---
+# Response
+bool is_approved
+string message

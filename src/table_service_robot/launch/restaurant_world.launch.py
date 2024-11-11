@@ -12,6 +12,10 @@ def generate_launch_description():
     pkg_dir = get_package_share_directory('table_service_robot')
     pkg_turtlebot3_description = get_package_share_directory('turtlebot3_description')
     pkg_turtlebot3_gazebo = get_package_share_directory('turtlebot3_gazebo')
+    pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
+    
+    # Nav2 파라미터 파일
+    nav2_params_path = os.path.join(pkg_nav2_bringup, 'params', 'nav2_params.yaml')
     
     # World 파일 경로
     world_file = os.path.join(pkg_dir, 'worlds', 'restaurant_world.world')
@@ -20,7 +24,7 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     
     # Turtlebot3 모델
-    TURTLEBOT3_MODEL = os.environ.get('TURTLEBOT3_MODEL', 'waffle_pi')
+    TURTLEBOT3_MODEL = os.environ.get('TURTLEBOT3_MODEL', 'waffle')
     
     # Turtlebot3 launch 파일 포함
     turtlebot3_gazebo = IncludeLaunchDescription(
@@ -53,6 +57,28 @@ def generate_launch_description():
         output='screen'
     )
     
+    # Nav2 실행
+    nav2_bringup = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(pkg_nav2_bringup, 'launch', 'navigation_launch.py')
+        ]),
+        launch_arguments={
+            'use_sim_time': 'true',
+            'params_file': nav2_params_path
+        }.items()
+    )
+    
+    # RViz2 실행
+    rviz_config_dir = os.path.join(pkg_turtlebot3_gazebo, 'rviz', 'nav2_default_view.rviz')
+    rviz2 = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', rviz_config_dir],
+        parameters=[{'use_sim_time': use_sim_time}],
+        output='screen'
+    )
+    
     # Launch Description 생성
     ld = LaunchDescription()
     
@@ -60,5 +86,7 @@ def generate_launch_description():
     ld.add_action(turtlebot3_gazebo)
     ld.add_action(gazebo)
     ld.add_action(spawn_entity)
+    ld.add_action(nav2_bringup)
+    ld.add_action(rviz2)
     
     return ld

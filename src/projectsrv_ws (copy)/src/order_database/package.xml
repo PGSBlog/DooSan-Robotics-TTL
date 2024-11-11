@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>order_database</name>
+  <version>0.0.0</version>
+  <description>A ROS 2 package for managing restaurant orders with a SQLite database.</description>
+
+  <maintainer email="ehddbs1211@naver.com">shin</maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>rclpy</build_depend>
+  <build_depend>sqlite3</build_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sqlite3</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

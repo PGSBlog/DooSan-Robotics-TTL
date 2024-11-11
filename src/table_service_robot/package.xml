@@ -3,7 +3,7 @@
 <package format="3">
   <name>table_service_robot</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Table Service Robot Package</description>
   <maintainer email="droppgs@todo.todo">droppgs</maintainer>
   <license>TODO: License declaration</license>
 

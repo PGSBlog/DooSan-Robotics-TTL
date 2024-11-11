@@ -1,0 +1,13 @@
+# Goal
+int32 table_number
+string status  # 'start_delivery' or 'return_to_kitchen'
+
+---
+# Result
+bool success
+string message
+
+---
+# Feedback
+string current_status
+float32 distance_remaining

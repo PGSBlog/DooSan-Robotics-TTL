@@ -1,0 +1,8 @@
+# 요청(Request)
+string menu_name           # 손님이 선택한 메뉴 이름
+int32 quantity             # 메뉴 수량
+
+---
+# 응답(Response)
+bool is_approved           # true: 승인, false: 거절
+string message             # 승인 또는 거절 사유를 설명하는 메시지
